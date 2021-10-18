@@ -1,0 +1,3 @@
+2021-10-18 13:06:20 WARN  Logging:20 - User signup has entered a duplicate email or username.
+2021-10-18 13:11:11 WARN  Logging:20 - User signup has entered a duplicate email or username.
+2021-10-18 13:11:15 WARN  Logging:20 - User signup has entered a duplicate email or username.
