@@ -3,10 +3,11 @@
   <groupId>com.ers</groupId>
   <artifactId>ers_project</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
   <name>ers_project</name>
-  <description>my project 1 content	</description>
+  <description>my project 1 content</description>
   
-  <properties>
+   <properties>
   <maven.compiler.target>1.8</maven.compiler.target>
   <maven.compiler.source>1.8</maven.compiler.source>
   </properties>
@@ -41,5 +42,4 @@
 </dependency>
 
   </dependencies>
-  
 </project>

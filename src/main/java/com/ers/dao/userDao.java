@@ -6,5 +6,6 @@ import com.ers.models.user;
 
 public interface userDao {
 	void userCreate(user u) throws SQLException;
-	user login(String username, String password);
+	user getUser(String username, String password);
+	user updateUser(String username, String fieldname, String change);
 }
