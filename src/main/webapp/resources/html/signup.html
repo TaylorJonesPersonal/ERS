@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="../css/signup.css">
+<title>Expense Reimbursement: Signup</title></head>
+<body>
+
+<div class = "header">
+<img src="logo.png" ID="logo" />
+<h1>Welcome to the Expense Reimbursement System</h1>
+</div>
+
+<div ID ="signUpDiv">
+<h1>Sign Up:</h1>
+<form ID ="signUpForm">
+<label for="firstname">&nbsp;First Name:       </label>
+<input ID="firstname" type="text" name="firstname" required />
+<br>
+<label for="lastname">&nbsp;Last Name: </label>
+<input ID="lastname" type="text" name="lastname" required />
+<br>
+<label for="email">&nbsp;Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<input ID="email" type="text" name="email" required />
+<br>
+<label for="username">&nbsp;Username:&nbsp;</label>
+<input ID="username" type="text" name="username" />
+<br>
+<label for="password">&nbsp;Password: &nbsp;</label>
+<input ID="password" type="password" name="password">
+<br>
+<br>
+<input ID="submitbtn" type="submit" value="Sign Up" />
+</form>
+</div>
+
+<div ID = "menu">
+<ul ID = "menuList">
+<li>Already have an account?</li>
+<a href= "http://localhost:8080/ERS/resources/html/login.html">Login</a>
+</ul>
+</div>
+
+<script src="../js/signup.js"></script>
+</body>
+
+
+</html>

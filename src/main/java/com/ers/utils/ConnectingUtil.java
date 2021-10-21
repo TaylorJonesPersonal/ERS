@@ -41,9 +41,10 @@ public class ConnectingUtil {
 	
 	Connection con;
 	try {
+		Class.forName("org.postgresql.Driver");
 		con = DriverManager.getConnection(url, username, password);
 		return con;
-	} catch(SQLException e) {
+	} catch(SQLException | ClassNotFoundException e) {
 		e.printStackTrace();
 	}
 	return null;

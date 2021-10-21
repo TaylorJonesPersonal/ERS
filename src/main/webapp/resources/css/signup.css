@@ -1,0 +1,43 @@
+@charset "ISO-8859-1";
+html, body {
+	margin: 0;
+	padding: 0;
+}
+h1{
+	font-family: Helvetica;
+	font-size: .99em;
+}
+#menu {
+	border-style: solid;
+	border-color: #581845;
+	background-color: #FF5733;
+	width: 200px;
+	border-radius: 3%;
+	margin-top: 300px;
+}
+
+.header{
+	margin-left: 0px;
+	background-color: gray;
+	overflow: auto;
+	text-align: center;
+	height: 150px;
+}
+#logo{
+	margin-top: -50px;
+	float: left;
+}
+
+.header h1 {
+	margin-left: 335px;
+	float: left;
+}
+
+#menuList li, a{
+	font-family: Helvetica;
+}
+
+#menuList a:hover {
+	text-shadow: 1px 1px #581845;
+	
+}

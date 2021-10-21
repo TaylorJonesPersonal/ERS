@@ -16,7 +16,7 @@ public class userDaoDB implements userDao {
 
 	
 		// crud operations: CREATE
-	public void userCreate(user u) throws SQLException{
+	public void createUser(user u) throws SQLException{
 		Connection con = conUtil.getConnection();
 
 			String sql = "INSERT into ers_users(user_first_name, user_last_name, user_email, ers_username, ers_password, user_role_id) values"
@@ -39,6 +39,7 @@ public class userDaoDB implements userDao {
 	public user getUser(String username, String password) throws UserDoesNotExistException {
 		Connection con = conUtil.getConnection();
 		
+		
 
 		user u = new user();
 
@@ -58,10 +59,7 @@ public class userDaoDB implements userDao {
 				u.setRole(rs.getInt(7));
 
 			}
-			if (u.getId() == 0) {
-				throw new UserDoesNotExistException();
-			}
-
+			System.out.println(u);
 			return u;
 		} catch (SQLException e) {
 			e.printStackTrace();
