@@ -15,7 +15,10 @@ public class ersDriver {
 	private static UserService uServ = new UserService(uDao);
 
 	public static void main(String[] args) {
+		
+		uServ.sendInvite("jonesftwingp@outlook.com");
 
+		/*
 		user newUser = new user("Taylor", "Jones", "taylor.jones@revature.net", "tbjones", "nopass");
 		try {
 			uServ.signUp("Taylor", "Jones", "taylor.jones@revature.net", "tbjones", "nopass");
@@ -23,6 +26,7 @@ public class ersDriver {
 			Logging.logger.warn("User signup has entered a duplicate email or username.");
 			System.out.println("Your signup has failed. Please try again.");
 		}
+		*/
 
 		/*
 		 * try { newUser = uDao.getUser("tbjones", "nopass");

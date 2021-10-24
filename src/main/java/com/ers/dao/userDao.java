@@ -9,5 +9,7 @@ public interface userDao {
 	user getUser(String username, String password);
 	user updateUser(String username, String fieldname, String change);
 	void deleteUser(String username);
+	public void postInviteCode(String username, int inviteCode);
+	public boolean checkInviteCode(String username, int inviteCode);
 	
 }

@@ -19,8 +19,8 @@ public class userDaoDB implements userDao {
 	public void createUser(user u) throws SQLException{
 		Connection con = conUtil.getConnection();
 
-			String sql = "INSERT into ers_users(user_first_name, user_last_name, user_email, ers_username, ers_password, user_role_id) values"
-					+ "(?,?,?,?,?,?);";
+			String sql = "INSERT into ers_users(user_first_name, user_last_name, user_email, user_username, user_password, user_role_id, user_pending) values"
+					+ "(?,?,?,?,?,?,?);";
 			PreparedStatement ps = con.prepareStatement(sql);
 			
 			ps.setString(1, u.getFirstname());
@@ -28,8 +28,8 @@ public class userDaoDB implements userDao {
 			ps.setString(3, u.getEmail());
 			ps.setString(4, u.getUsername());
 			ps.setString(5, u.getPassword());
-			ps.setInt(6, u.getRole());
-
+			ps.setInt(6, u.getRoleID());
+			ps.setString(7, u.getPending());
 			ps.execute();
 
 	}
@@ -44,7 +44,7 @@ public class userDaoDB implements userDao {
 		user u = new user();
 
 		try {
-			String sql = "SELECT * from ers_users where ers_username = '" + username + "';";
+			String sql = "SELECT * from ers_users where user_username = '" + username + "';";
 
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(sql);
@@ -56,7 +56,7 @@ public class userDaoDB implements userDao {
 				u.setEmail(rs.getString(4));
 				u.setUsername(rs.getString(5));
 				u.setPassword(rs.getString(6));
-				u.setRole(rs.getInt(7));
+				u.setRoleID(rs.getInt(7));
 
 			}
 			System.out.println(u);
@@ -69,19 +69,18 @@ public class userDaoDB implements userDao {
 	
 	
 		// crud operations: UPDATE
-		// this one will need careful restrictions of input on "fieldname" - will need a switch statement for user_ and ers_.
 	public user updateUser(String username, String fieldname, String change) throws UserDoesNotExistException {
 		Connection con = conUtil.getConnection();
 		
 		user u = new user();
 		
 		try {
-			String sql = "UPDATE ers_users set user_" + fieldname + " = '" + change + "' where ers_username = '" + username + "';";
+			String sql = "UPDATE ers_users set user_" + fieldname + " = '" + change + "' where user_username = '" + username + "';";
 			
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.execute();
 	
-			String sql2 = "SELECT * from ers_users where ers_username = '" + username + "'";
+			String sql2 = "SELECT * from ers_users where user_username = '" + username + "'";
 			
 			
 			Statement s = con.createStatement();
@@ -94,8 +93,8 @@ public class userDaoDB implements userDao {
 				u.setEmail(rs.getString(4));
 				u.setUsername(rs.getString(5));
 				u.setPassword(rs.getString(6));
-				u.setRole(rs.getInt(7));
-
+				u.setRoleID(rs.getInt(7));
+				u.setPending(rs.getString(8));
 			}
 			if (u.getId() == 0) {
 				throw new UserDoesNotExistException();
@@ -109,13 +108,13 @@ public class userDaoDB implements userDao {
 			return null;
 
 }
-	
+	// crud operations: DELETE
 	public void deleteUser(String username) {
 		Connection con = conUtil.getConnection();
 		
 		try {
 			
-			String sql = "DELETE from ers_users where ers_username = '" + username + "';";
+			String sql = "DELETE from ers_users where user_username = '" + username + "';";
 			
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.execute();
@@ -123,5 +122,60 @@ public class userDaoDB implements userDao {
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void postInviteCode(String username, int inviteCode) {
+		Connection con = conUtil.getConnection();
+		
+		try {
+			
+			String sql = "UPDATE ers_users set user_invite_code = '" + inviteCode + "' where user_username = '" + username + "';"; 
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.execute();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean checkInviteCode(String username, int inviteCode){
+		Connection con = conUtil.getConnection();
+		
+		int code = 0; 
+		
+		try {
+			
+			String sql = "SELECT user_invite_code from ers_users where user_username = '" + username + "';";
+			
+			Statement s = con.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			
+			while(rs.next()) {
+				code = rs.getInt(1);
+			}
+			
+			System.out.println(inviteCode);
+			System.out.println(code);
+			
+			if(code != inviteCode) {
+				return false;
+			}else {
+			
+			String sql2 = "UPDATE ers_users set user_pending = 'n' where user_username = '" + username + "';";
+			
+			PreparedStatement ps = con.prepareStatement(sql2);
+			ps.execute();
+			
+			String sql3 = "UPDATE ers_users set user_invite_code = null where user_username = '" + username + "';";
+			
+			PreparedStatement ps2 = con.prepareStatement(sql3);
+			ps2.execute();
+			
+			return true;
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

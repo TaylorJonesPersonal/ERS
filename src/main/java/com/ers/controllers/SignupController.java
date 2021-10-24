@@ -54,15 +54,14 @@ public class SignupController {
 			System.out.println("In the post handler");
 			System.out.println(username);
 			user u = uServ.signUp(firstname,lastname,email,username,password);
-			System.out.println(u);
+			int retrievalCode = uServ.sendInvite(email);
+			uServ.postInvite(username, retrievalCode);
 			// We will keep track of if a user is signed in by storing their id in the
 			// session
-			req.getSession().setAttribute("id", u.getId());
 			res.setStatus(200);
 			res.getWriter().write(new ObjectMapper().writeValueAsString(u));
 		} catch (Exception e) {
 			res.setStatus(403);
-			res.getWriter().println("Username or password incorrect");
 		}
 
 	}

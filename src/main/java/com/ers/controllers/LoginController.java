@@ -45,10 +45,7 @@ public class LoginController {
 		String password = parsedObj.get("password").asText();
 
 		try {
-			System.out.println("In the post handler");
-			System.out.println(username);
 			user u = uServ.login(username, password);
-			System.out.println(u);
 			// We will keep track of if a user is signed in by storing their id in the
 			// session
 			req.getSession().setAttribute("id", u.getId());

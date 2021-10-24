@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ers.controllers.InviteCodeController;
 import com.ers.controllers.LoginController;
 import com.ers.controllers.SignupController;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,6 +24,11 @@ public class Dispatcher {
 		case "/ERS/api/signup":
 			System.out.println("routed to signupcontroller");
 			SignupController.signUp(req, res);
+			break;
+			
+		case "/ERS/api/invitecode":
+			System.out.println("routed to invitecodecontroller");
+			InviteCodeController.inviteCode(req, res);
 			break;
 		}
 	}

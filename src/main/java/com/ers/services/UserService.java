@@ -2,10 +2,15 @@ package com.ers.services;
 
 import java.sql.SQLException;
 
+import com.aspose.email.MailAddress;
+import com.aspose.email.MailMessage;
+import com.aspose.email.SmtpClient;
 import com.ers.dao.userDao;
 import com.ers.exceptions.IncorrectCredentialsException;
+import com.ers.exceptions.InviteCodeNotValidatedException;
 import com.ers.exceptions.SignUpFailedException;
 import com.ers.exceptions.UserDoesNotExistException;
+import com.ers.exceptions.WrongInviteCodeException;
 import com.ers.logging.Logging;
 import com.ers.models.user;
 
@@ -31,7 +36,7 @@ public class UserService {
 		return u;
 	}
 
-	public user login(String username, String password) throws UserDoesNotExistException, IncorrectCredentialsException {
+	public user login(String username, String password) throws UserDoesNotExistException, IncorrectCredentialsException, InviteCodeNotValidatedException {
 		try {
 			user newUser = uDao.getUser(username, password);
 			
@@ -41,7 +46,11 @@ public class UserService {
 			} else if(!password.equals(newUser.getPassword())) {
 				Logging.logger.warn("Incorrect Credentials provided.");
 				throw new IncorrectCredentialsException();
-			} else {
+			} else if(newUser.getPending() == "y") {
+				Logging.logger.warn("User has not validated retrieval code");
+				throw new InviteCodeNotValidatedException();
+			}
+			else {
 				return newUser;
 			}
 			} catch(Exception e) {
@@ -49,5 +58,68 @@ public class UserService {
 			}
 		return null;
 	}
+	
+	public int sendInvite(String email) {
+		//Create a new instance of MailMessage class
+		int randomCode = (int) Math.floor(Math.random()*(100000-10000+1) + 10000);
+		MailMessage message = new MailMessage();
+		
+		//Set subject of the message
+		message.setSubject("Your invitation code from the Reimbursement System");
+		
+		//Set HTML body
+		message.setHtmlBody("<h3>Your unique ID is: </h3><br>");
+		message.setHtmlBody("<p><b>" + randomCode + "</b></p>");
+		
+		// Specify From address
+		message.setFrom(new MailAddress("jonesftwingp@outlook.com"));
+		
+		// Add TO recipients
+		message.getTo().addMailAddress(new MailAddress(email));
+		
+		//Create an instance of SmtpClient Class and specify your mailing host server, username, password, port
+		SmtpClient client = new SmtpClient();
+		client.setHost("smtp-mail.outlook.com");
+		client.setUsername("jonesftwingp@outlook.com");
+		client.setPassword("Unhackable9651");
+		client.setPort(587);
+		
+		try {
+			//Client.Send will send this message
+			client.send(message);
+			System.out.println("Message Sent!");
+		} catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		System.out.println(randomCode);
+		return randomCode;
+	}
+	
+	public void postInvite(String username, int inviteCode) {
+		user u = new user(username, inviteCode);
+		try {
+		uDao.postInviteCode(username, inviteCode);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public user checkCode(String username, int inviteCode) throws WrongInviteCodeException {
+		user u = new user(username, inviteCode);
+		try {
+			if(uDao.checkInviteCode(username, inviteCode) == false) {
+				Logging.logger.warn("User input incorrect invite code.");
+				throw new WrongInviteCodeException();
+			} else {
+				return u;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
 
 }

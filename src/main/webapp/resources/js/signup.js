@@ -1,5 +1,6 @@
 let form = document.getElementById("signUpForm").addEventListener('submit', signup);
 
+
 async function signup(e){
 	e.preventDefault();
 	
@@ -26,10 +27,59 @@ async function signup(e){
 			body: JSON.stringify(user)
 		});
 		let res = await req.json();
-		location.href="../html/login.html";
+		retrievalCode();
 	} catch(e){
-		alert('Signup error! Please try again.')
+		console.log(e);
 		return;
 	}
 	
 }
+
+async function postRetrievalCode(e){
+	e.preventDefault();
+	
+	let newRetrievalCode = document.getElementById("retrievalCodeInput").value;
+	let newUsername = document.getElementById("username").value;
+	
+	let post = {
+		code : newRetrievalCode,
+		username : newUsername
+	};
+	
+	
+	
+	try{
+		let req = await fetch('http://localhost:8080/ERS/api/invitecode', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(post)
+		});
+		let res = await req.json();
+		location.href = "../html/login.html";
+		} catch(e){
+			alert("Incorrect invite code. Please verify and try again.");
+			return;
+		}
+	
+}
+
+
+function retrievalCode(email){
+	var newNode = document.createElement("div");
+	newNode.style.backgroundColor="#2D87D4";
+	newNode.style.display= "inline-block";
+	newNode.style.float= "left";
+	newNode.style.marginLeft ="50px";
+	newNode.style.marginTop = "20px";
+	newNode.style.padding = "10px";
+	newNode.style.paddingTop = "2px";
+	newNode.style.borderStyle = "solid";
+	newNode.style.borderRadius = "4%";
+	newNode.style.width = "300px";
+	newNode.innerHTML = "<p>A retrieval code has been sent to your email.</p><p>Please check your inbox and spam folder and enter it here: <form ID = 'retrievalCodeForm'><input type='text' ID = 'retrievalCodeInput' style='border-style:solid;' /><input type='submit' value='Verify' /></form>";
+	document.getElementById("signUpDiv").appendChild(newNode);
+	let form2 = document.getElementById("retrievalCodeForm").addEventListener('submit', postRetrievalCode);
+}
+
