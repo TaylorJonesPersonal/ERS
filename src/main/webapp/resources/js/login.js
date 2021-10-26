@@ -25,7 +25,7 @@ async function login(e){
 			body: JSON.stringify(user)
 		});
 		let res = await req.json();
-		location.href = '../html/signup.html';
+		location.href = '../html/home.html';
 	} catch(e){
 		alert('Username or password was incorrect!');
 		return;

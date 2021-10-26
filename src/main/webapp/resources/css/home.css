@@ -1,0 +1,91 @@
+@charset "ISO-8859-1";
+
+table, th, td {
+	border : 1px solid black;
+	margin-left: auto;
+	margin-right:auto;
+}
+
+a{
+	text-decoration : none;
+	color : inherit;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+}
+h1{
+	font-family: Helvetica;
+	font-size: .99em;
+}
+span{
+	font-family: Helvetica;
+}
+p{
+	font-family: Helvetica;
+}
+.header{
+	margin-left: 0px;
+	background-color: #FF5733;
+	overflow: auto;
+	text-align: center;
+	height: 150px;
+	border-color: #DE4D2D;
+	border-style: solid;
+}
+#logo{
+	margin-top: -50px;
+	float: left;
+}
+
+.header h1 {
+	margin-left: 405px;
+	float: left;
+}
+#sidebarContainer{
+	width: 100px;
+	height: 1000px;
+	background-color: #918D8C;
+	border-radius: 0% 3% 3% 0%;
+	border-color: #7E7B7B;
+	border-style: solid;
+	display: inline-block;
+	float: left;
+}
+.dropdown{
+	font-weight: bold;
+	margin: -12px;
+	padding: 0px;
+}
+
+#sidebarButton:hover{
+	cursor: pointer;
+}
+
+#menuList{
+	list-style-position: inside;
+	padding-left: 0;
+}
+
+@keyframes anim{
+	from {color : #918D8C;}
+	to {color : black;}
+}
+
+.menuItems{
+	font-size: 13.5px;
+	border-style: solid;
+	border-color: #7E7B7B;
+	animation-name: anim;
+	animation-duration: 1s;
+}
+
+#contentContainer h2, h3{
+	text-align: center;
+	font-family: helvetica;
+}
+
+.tabletitles{
+	font-family: helvetica;
+	font-weight: bold;
+}

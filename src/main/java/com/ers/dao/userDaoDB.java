@@ -28,7 +28,7 @@ public class userDaoDB implements userDao {
 			ps.setString(3, u.getEmail());
 			ps.setString(4, u.getUsername());
 			ps.setString(5, u.getPassword());
-			ps.setInt(6, u.getRoleID());
+			ps.setString(6, u.getRoleID());
 			ps.setString(7, u.getPending());
 			ps.execute();
 
@@ -56,7 +56,7 @@ public class userDaoDB implements userDao {
 				u.setEmail(rs.getString(4));
 				u.setUsername(rs.getString(5));
 				u.setPassword(rs.getString(6));
-				u.setRoleID(rs.getInt(7));
+				u.setRoleID(rs.getString(7));
 
 			}
 			System.out.println(u);
@@ -93,7 +93,7 @@ public class userDaoDB implements userDao {
 				u.setEmail(rs.getString(4));
 				u.setUsername(rs.getString(5));
 				u.setPassword(rs.getString(6));
-				u.setRoleID(rs.getInt(7));
+				u.setRoleID(rs.getString(7));
 				u.setPending(rs.getString(8));
 			}
 			if (u.getId() == 0) {

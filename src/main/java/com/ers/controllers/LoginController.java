@@ -49,6 +49,12 @@ public class LoginController {
 			// We will keep track of if a user is signed in by storing their id in the
 			// session
 			req.getSession().setAttribute("id", u.getId());
+			req.getSession().setAttribute("username", u.getUsername());
+			req.getSession().setAttribute("password", u.getPassword());
+			req.getSession().setAttribute("firstname", u.getFirstname());
+			req.getSession().setAttribute("lastname", u.getLastname());
+			req.getSession().setAttribute("emaiL", u.getEmail());
+			req.getSession().setAttribute("role", u.getRoleID());
 			res.setStatus(200);
 			res.getWriter().write(new ObjectMapper().writeValueAsString(u));
 		} catch (Exception e) {
