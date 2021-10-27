@@ -22,7 +22,7 @@ public static void largerSession(HttpServletRequest req, HttpServletResponse res
 	u.setEmail((String)session.getAttribute("email"));
 	u.setUsername((String)session.getAttribute("username"));
 	u.setPassword((String)session.getAttribute("password"));
-	u.setRoleID((String)session.getAttribute("role"));
+	u.setRoleID((int)session.getAttribute("role"));
 	System.out.println(u.getRoleID());
 	
 	try {

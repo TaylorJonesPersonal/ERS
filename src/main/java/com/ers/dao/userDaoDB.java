@@ -28,7 +28,7 @@ public class userDaoDB implements userDao {
 			ps.setString(3, u.getEmail());
 			ps.setString(4, u.getUsername());
 			ps.setString(5, u.getPassword());
-			ps.setString(6, u.getRoleID());
+			ps.setInt(6, u.getRoleID());
 			ps.setString(7, u.getPending());
 			ps.execute();
 
@@ -56,7 +56,7 @@ public class userDaoDB implements userDao {
 				u.setEmail(rs.getString(4));
 				u.setUsername(rs.getString(5));
 				u.setPassword(rs.getString(6));
-				u.setRoleID(rs.getString(7));
+				u.setRoleID(rs.getInt(7));
 
 			}
 			System.out.println(u);
@@ -71,7 +71,7 @@ public class userDaoDB implements userDao {
 		// crud operations: UPDATE
 	public user updateUser(String username, String fieldname, String change) throws UserDoesNotExistException {
 		Connection con = conUtil.getConnection();
-		
+
 		user u = new user();
 		
 		try {
@@ -79,8 +79,14 @@ public class userDaoDB implements userDao {
 			
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.execute();
+			
+			String sql2;
+			if(fieldname == "username") {
 	
-			String sql2 = "SELECT * from ers_users where user_username = '" + username + "'";
+			sql2 = "SELECT * from ers_users where user_username = '" + change + "'";
+			} else {
+			sql2 = "SELECT * from ers_users where user_username = '" + username + "'";
+			}
 			
 			
 			Statement s = con.createStatement();
@@ -93,11 +99,8 @@ public class userDaoDB implements userDao {
 				u.setEmail(rs.getString(4));
 				u.setUsername(rs.getString(5));
 				u.setPassword(rs.getString(6));
-				u.setRoleID(rs.getString(7));
+				u.setRoleID(rs.getInt(7));
 				u.setPending(rs.getString(8));
-			}
-			if (u.getId() == 0) {
-				throw new UserDoesNotExistException();
 			}
 			
 			return u;

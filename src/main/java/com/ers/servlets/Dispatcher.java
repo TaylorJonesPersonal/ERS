@@ -10,6 +10,7 @@ import com.ers.controllers.LargerSessionInfoController;
 import com.ers.controllers.LoginController;
 import com.ers.controllers.SessionInfoController;
 import com.ers.controllers.SignupController;
+import com.ers.controllers.UpdateController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class Dispatcher {
@@ -39,8 +40,13 @@ public class Dispatcher {
 			break;
 			
 		case "/ERS/api/largersessioninfo":
-			System.out.println("routed to largersessioninfo");
+			System.out.println("routed to largersessioninfocontroller");
 			LargerSessionInfoController.largerSession(req, res);
+			break;
+			
+		case "/ERS/api/update":
+			System.out.println("routed to updatecontroller");
+			UpdateController.update(req, res);
 			break;
 			
 		}

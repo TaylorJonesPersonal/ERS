@@ -19,7 +19,7 @@ function menuControl() {
 
 function addMenu() {
 	var newNode = document.createElement("div");
-	newNode.innerHTML = "<p class='menuItems'><a href='#'>Submit Reimbursement Request</a></p><p class='menuItems'><a href='#'>View Pending Requests</a></p><p class='menuItems'><a href='#'>View Resolved Requests</a></p><p class='menuItems'><a href='#'>Logout</a></p>";
+	newNode.innerHTML = "<p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/reimbursementrequest.html'>Submit Reimbursement Request</a></p><p class='menuItems'><a href='#'>View Pending Requests</a></p><p class='menuItems'><a href='#'>View Resolved Requests</a></p><p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/signup.html'>Logout</a></p>";
 	document.getElementById("sidebarContainer").appendChild(newNode);
 };
 
@@ -27,6 +27,17 @@ function foldMenu() {
 	var container = document.getElementById("sidebarContainer");
 	container.removeChild(container.lastChild);
 };
+
+function disappear() {
+	var newNode = document.createElement("div");
+	newNode.innerHTML = "<div ID = 'statusContainerDiv'><span>Updated</span></div>";
+	document.getElementById("statusContainer").appendChild(newNode);	
+}
+
+function removeElement(){
+	var node = document.getElementById("statusContainer");
+	node.removeChild(node.lastChild);
+}
 
 async function getSessionInfo(e) {
 	try {
@@ -45,16 +56,15 @@ async function getSessionInfo(e) {
 		
 		// employee password
 		newNode = document.createElement("span");
-		console.log(sessionInfo.roleID);
 		newNode.innerHTML = sessionInfo.password;
 		document.getElementById("employeePassword").appendChild(newNode);
 		
 		// employee role
 		newNode = document.createElement("span");
-		if(sessionInfo.roleID == "0"){
+		if(sessionInfo.roleID == "1"){
 			newNode.innerHTML = "Employee";
 			document.getElementById("employeeRole").appendChild(newNode);
-		} else if(sessionInfo.roleID == "1"){
+		} else if(sessionInfo.roleID == "2"){
 			newNode.innerHTML = "Manager";
 			document.getElementById("employeeRole").appendChild(newNode);
 		}
@@ -62,4 +72,78 @@ async function getSessionInfo(e) {
 		console.log(e);
 		return;
 	}
+};
+
+
+// update USERNAME
+async function updateUsername(){
+	
+	// step 1 to comply with UserDao: the username
+	let username = document.getElementById("employeeUsername").innerText;
+	
+	// step 2 to comply with UserDao: the change
+	let change = document.getElementById("usernameInput").value;
+	
+	let user = {
+		nameOfField: "username",
+		username,
+		change
+	}
+	
+	
+	try{
+		let request = await fetch('http://localhost:8080/ERS/api/update', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'applicaton/json'
+			},
+				body: JSON.stringify(user)
+		});
+		let response = await request.text();
+		document.getElementById("employeeUsername").innerText= response;
+		document.getElementById("usernameInput").value = "";
+		disappear();
+		setTimeout(removeElement, 2000);
+		
+	}catch(e){
+		console.log(e);
+		return;
+	}
+
+}
+
+async function updatePassword(){
+	
+	// step 1 to comply with UserDao: the username
+	let username = document.getElementById("employeeUsername").innerText;
+	
+	// step 2 to comply with UserDao: the change
+	let change = document.getElementById("passwordInput").value;
+	
+	let user = {
+		nameOfField: "password",
+		username,
+		change
+	}
+	
+	
+	try{
+		let request = await fetch('http://localhost:8080/ERS/api/update', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'applicaton/json'
+			},
+				body: JSON.stringify(user)
+		});
+		let response = await request.text();
+		document.getElementById("employeePassword").innerText= response;
+		document.getElementById("passwordInput").value = "";
+		disappear();
+		setTimeout(removeElement, 2000);
+		
+	}catch(e){
+		console.log(e);
+		return;
+	}
+
 }

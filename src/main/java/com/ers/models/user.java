@@ -9,7 +9,7 @@ public class user {
 	private String firstname;
 	private String lastname;
 	private String email;
-	private String roleID;
+	private int roleID;
 	private String pending;
 	private int inviteCode;
 	
@@ -24,7 +24,7 @@ public class user {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
-		this.roleID = "1";
+		this.roleID = 1;
 		this.pending = "y";
 		this.inviteCode = 0;
 	}
@@ -100,12 +100,13 @@ public class user {
 	}
 
 
-	public String getRoleID() {
+
+	public int getRoleID() {
 		return roleID;
 	}
 
 
-	public void setRoleID(String roleID) {
+	public void setRoleID(int roleID) {
 		this.roleID = roleID;
 	}
 

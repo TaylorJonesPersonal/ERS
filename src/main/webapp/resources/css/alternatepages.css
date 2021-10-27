@@ -1,5 +1,6 @@
 @charset "ISO-8859-1";
 
+
 body{
 	font-family: helvetica;
 }
@@ -41,11 +42,11 @@ p {
 
 .header {
 	margin-left: 0px;
-	background-color: #FF5733;
+	background-color: #2D87D4;
 	overflow: auto;
 	text-align: center;
 	height: 150px;
-	border-color: #DE4D2D;
+	border-color: #554AE1;
 	border-style: solid;
 }
 
@@ -128,4 +129,8 @@ to {color: black;}
 }
 #statusContainerDiv span {
 	padding: 0px 0;
+}
+
+#reimbursementFormDiv{
+	margin-left: 200px;
 }

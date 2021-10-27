@@ -30,9 +30,10 @@ public class UserService {
 			uDao.createUser(u);
 		} catch (SQLException e) {
 			Logging.logger.warn("User is either already signed up or has provided invalid data for signup.");
+			e.printStackTrace();
 			throw new SignUpFailedException();
 		}
-
+		System.out.println(u);
 		return u;
 	}
 
@@ -94,6 +95,12 @@ public class UserService {
 		}
 		System.out.println(randomCode);
 		return randomCode;
+	}
+	
+	
+	public void update(String username, String fieldname, String change) {
+		System.out.println(username);
+		uDao.updateUser(username, fieldname, change);
 	}
 	
 	public void postInvite(String username, int inviteCode) {
