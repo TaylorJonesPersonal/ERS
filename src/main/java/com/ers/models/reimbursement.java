@@ -20,6 +20,8 @@ public class reimbursement {
 	private int statusId;
 	private String status;
 	private int typeId;
+	private String authorFirstName;
+	private String authorLastName;
 	
 
 	public reimbursement(double amount, int typeId, String submittedDate, String description, int author) {
@@ -32,6 +34,15 @@ public class reimbursement {
 	}
 	
 	public reimbursement(String submittedDate, double amount, String description, String status) {
+		this.submittedDate = submittedDate;
+		this.amount = amount;
+		this.description = description;
+		this.status = status;
+	}
+	
+	public reimbursement(String authorFirstName, String authorLastName, String submittedDate, double amount, String description, String status) {
+		this.authorFirstName = authorFirstName;
+		this.authorLastName = authorLastName;
 		this.submittedDate = submittedDate;
 		this.amount = amount;
 		this.description = description;
@@ -142,12 +153,31 @@ public class reimbursement {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	
 
 	@Override
 	public String toString() {
 		return "reimbursement [id=" + id + ", amount=" + amount + ", submittedDate=" + submittedDate + ", resolvedDate="
 				+ resolvedDate + ", description=" + description + ", author=" + author + ", resolver=" + resolver
-				+ ", statusId=" + statusId + ", status=" + status + ", typeId=" + typeId + "]";
+				+ ", statusId=" + statusId + ", status=" + status + ", typeId=" + typeId + ", authorFirstName="
+				+ authorFirstName + ", authorLastName=" + authorLastName + "]";
+	}
+
+	public String getAuthorFirstName() {
+		return authorFirstName;
+	}
+
+	public void setAuthorFirstName(String authorFirstName) {
+		this.authorFirstName = authorFirstName;
+	}
+
+	public String getAuthorLastName() {
+		return authorLastName;
+	}
+
+	public void setAuthorLastName(String authorLastName) {
+		this.authorLastName = authorLastName;
 	}
 	
 	

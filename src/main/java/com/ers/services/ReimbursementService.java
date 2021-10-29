@@ -29,5 +29,18 @@ public class ReimbursementService {
 		
 		return null;
 	}
+	
+	public ArrayList<reimbursement> getAllReimb(String status) {
+		ArrayList<reimbursement> rList = new ArrayList<reimbursement>();
+		try {
+			System.out.println("in the getAllReimb service");
+			rList = rDao.getAllReimbursement(status);
+			return rList;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
 
 }

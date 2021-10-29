@@ -18,13 +18,13 @@ public class user {
 	}
 	
 	
-	public user(String firstname, String lastname, String email, String username, String password) {
+	public user(String firstname, String lastname, String email, String username, String password, int roleID) {
 		this.username = username;
 		this.password = password;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
-		this.roleID = 1;
+		this.roleID = roleID;
 		this.pending = "y";
 		this.inviteCode = 0;
 	}

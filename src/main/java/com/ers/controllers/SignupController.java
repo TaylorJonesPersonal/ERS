@@ -48,10 +48,11 @@ public class SignupController {
 		String email = parsedObj.get("email").asText();
 		String username = parsedObj.get("username").asText();
 		String password = parsedObj.get("password").asText();
+		int roleId = parsedObj.get("roleId").asInt();
 		
 
 		try {
-			user u = uServ.signUp(firstname,lastname,email,username,password);
+			user u = uServ.signUp(firstname,lastname,email,username,password, roleId);
 			System.out.println(email);
 			int retrievalCode = uServ.sendInvite(email);
 			uServ.postInvite(username, retrievalCode);

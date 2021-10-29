@@ -101,6 +101,10 @@ to {color: black;}
 	animation-duration: 1s;
 }
 
+.menuItems:hover{
+	background-color: #6C6B6B;
+}
+
 #contentContainer h2, h3 {
 	text-align: center;
 	font-family: helvetica;

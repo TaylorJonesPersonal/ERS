@@ -82,5 +82,42 @@ public class reimbursementDaoDB implements reimbursementDao {
 		
 		return null;
 	}
+	
+	public ArrayList<reimbursement> getAllReimbursement(String status) {
+		Connection con = conUtil.getConnection();
+		
+		
+		ArrayList<reimbursement> rList = new ArrayList<reimbursement>();
+		int arrayCounter = 0;
+		
+		try {
+			
+			String sql = "select user_first_name, user_last_name, reimb_submitted, reimb_amount, reimb_description, reimb_status from ers_users inner join ers_reimbursement on ers_users.user_id = ers_reimbursement.reimb_author inner join ers_reimbursement_status on ers_reimbursement.reimb_status_id = ers_reimbursement_status.reimb_status_id where ers_reimbursement_status.reimb_status = '" + status + "';"; 
+			
+			Statement s = con.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			
+			while (rs.next()) {
+				
+				String firstName = rs.getString(1);
+				String lastName = rs.getString(2);
+				String submittedDate = (rs.getTimestamp(3).toString());
+				double amount = rs.getDouble(4);
+				String description = rs.getString(5);
+				
+				rList.add(new reimbursement(firstName, lastName, submittedDate, amount, description, status));
+			}
+			
+			for(int i = 0; i < rList.size(); i++) {
+				System.out.println(rList.get(i));
+			}
+			
+			return rList;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 
 }

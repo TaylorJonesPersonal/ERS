@@ -22,9 +22,9 @@ public class UserService {
 		this.uDao = uDao;
 	}
 
-	public user signUp(String firstname, String lastname, String email, String username, String password)
+	public user signUp(String firstname, String lastname, String email, String username, String password, int roleId)
 			throws SignUpFailedException {
-		user u = new user(firstname, lastname, email, username, password);
+		user u = new user(firstname, lastname, email, username, password, roleId);
 
 		try {
 			uDao.createUser(u);

@@ -12,6 +12,7 @@ import com.ers.controllers.reimbursements.ApprovedController;
 import com.ers.controllers.reimbursements.DeniedController;
 import com.ers.controllers.reimbursements.NewReimbursementController;
 import com.ers.controllers.reimbursements.PendingController;
+import com.ers.controllers.reimbursements.mPendingController;
 import com.ers.controllers.sessions.CheckSession;
 import com.ers.controllers.sessions.EndSession;
 import com.ers.controllers.sessions.LargerSessionInfoController;
@@ -68,6 +69,11 @@ public class Dispatcher {
 		case "/ERS/api/getpending":
 			System.out.println("routed to getpendingcontroller");
 			PendingController.pending(req, res);
+			break;
+			
+		case "/ERS/api/getmpending":
+			System.out.println("routed to managerpendingcontroller");
+			mPendingController.mPending(req, res);
 			break;
 			
 		case "/ERS/api/getapproved":

@@ -80,8 +80,11 @@ function addSubmitButton(){
 
 async function formInfo(e){
 	e.preventDefault();
-	
-	let amount = document.getElementById("dollars").value + document.getElementById("cents").value;
+	if(document.getElementById("cents").value != "0"){
+	var amount = document.getElementById("dollars").value + document.getElementById("cents").value;
+	} else{
+	amount = document.getElementById("dollars").value + "." + document.getElementById("cents").value;
+	}
 	let type = document.getElementById("type").value;
 	let time = document.getElementById("timestamp").value;
 	let description = document.getElementById("description").value;
