@@ -35,7 +35,7 @@
 <label for="amountDollars">The amount I'd like reimbursed is: $</label>
 <input ID = "dollars" type="number" min="0" step="any" required/>
 <label for="amountCents"> and </label>
-<input ID= "cents" type="number" min="0" max = "99" step="any" required/> ¢
+<input ID= "cents" type="number" min=".00" max = ".99" step=".01" required/> ¢
 <br>
 <br>
 <label for = "description">Describe (in 250 characters or less) the details of this request: </label>
@@ -50,7 +50,6 @@
 <label for="timestamp">Timestamp: </label>
 <input ID="timestamp" type="text" required />
 <input ID = "timestampButton" type ="button" value="Get Timestamp" />
-<input type ="submit">
 </form>
 </div>
 

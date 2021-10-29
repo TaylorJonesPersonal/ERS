@@ -1,10 +1,32 @@
 window.onload = function() {
+	checkSession();
 	getSessionInfo();
 }
 
+async function checkSession() {
+	try{
+		let request = await fetch('http://localhost:8080/ERS/api/checksession');
+		let response = await request.text();
+		console.log(response);
+		if(response == "0"){
+			location.href = "../html/signup.html"
+		}
+	}catch(e){
+		console.log(e);
+	}
+}
 var controlFlag = 0;
 var dropdown = document.getElementById("sidebarButton").addEventListener('click', menuControl);
 
+async function logout() {
+	try{
+		let request = await fetch('http://localhost:8080/ERS/api/logout');
+		let response = await request.text();
+		console.log(response);
+	} catch(e){
+		console.log(e);
+	}
+}
 
 function menuControl() {
 	console.log(controlFlag);
@@ -19,7 +41,7 @@ function menuControl() {
 
 function addMenu() {
 	var newNode = document.createElement("div");
-	newNode.innerHTML = "<p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/reimbursementrequest.html'>Submit Reimbursement Request</a></p><p class='menuItems'><a href='#'>View Pending Requests</a></p><p class='menuItems'><a href='#'>View Resolved Requests</a></p><p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/signup.html'>Logout</a></p>";
+	newNode.innerHTML = "<p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/reimbursementrequest.html'>Submit Reimbursement Request</a></p><p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/reimbursementview.html'>View Reimbursement Requests</a></p><p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/signup.html' onClick ='logout()'>Logout</a></p>";
 	document.getElementById("sidebarContainer").appendChild(newNode);
 };
 

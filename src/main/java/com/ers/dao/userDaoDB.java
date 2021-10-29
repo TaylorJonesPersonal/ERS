@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 import com.ers.exceptions.SignUpFailedException;
 import com.ers.exceptions.UserDoesNotExistException;
@@ -38,6 +40,7 @@ public class userDaoDB implements userDao {
 		// crud operations: READ
 	public user getUser(String username, String password) throws UserDoesNotExistException {
 		Connection con = conUtil.getConnection();
+	
 		
 		
 

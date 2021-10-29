@@ -1,4 +1,19 @@
 let form = document.getElementById("signUpForm").addEventListener('submit', signup);
+var Question = document.getElementById("manager").addEventListener('click', managerQuestion);
+
+function managerQuestion(){
+	var mq = document.getElementById("managerQuestion");
+	mQuestion = document.getElementById("manager").checked;
+	if(mQuestion == true){
+		console.log("in the if block");
+		let newNode = document.createElement("div");
+		newNode.innerHTML = "<i>&nbsp;&nbsp;&nbsp; I swear, under penalty of perjury, that I am a manager of the Expense Reimbursement System, or an authorized representative thereof.</i>";
+		mq.appendChild(newNode);
+		console.log("at the end of the if block.");
+	}else{
+		mq.removeChild(mq.lastChild);
+	}
+}
 
 
 async function signup(e){

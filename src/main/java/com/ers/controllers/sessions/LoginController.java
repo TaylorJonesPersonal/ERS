@@ -1,4 +1,4 @@
-package com.ers.controllers;
+package com.ers.controllers.sessions;
 
 import java.io.BufferedReader;
 import java.io.IOException;
