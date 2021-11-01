@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel = "stylesheet" href = "../css/home.css">
+<title>Expense Reimbursement: Account</title>
+</head>
+<body>
+
+
+
+<div class = "header">
+<a href="http://localhost:8080/ERS/resources/html/home.html"><img src="logo.png" ID="logo" /></a>
+<h1>Welcome to the Expense Reimbursement System</h1>
+</div>
+
+<div ID = "sidebarContainer">
+<div ID ="sidebarButton"><p class="dropdown">____</p><p class="dropdown">____</p><p class="dropdown">____</p><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MENU</b></span></div>
+</div>
+
+<div ID = "contentContainer">
+<h2>Here is the information we have on file for you: </h2>
+
+<div ID = "statusContainer">
+</div>
+
+<br>
+<table>
+<tr>
+<th ID = "employeeName" colspan ="3"></th>
+</tr>
+<tr>
+<td class = "tabletitles">Username:</td>
+<td ID = "employeeUsername"></td>
+<td><input ID = 'usernameInput' type = 'text' />
+<td><button onClick = "updateUsername()">Update</button>
+</tr>
+<tr>
+<td class = "tabletitles">Password:</td>
+<td ID = "employeePassword"></td>
+<td><input ID = 'passwordInput' type = 'text' />
+<td><button onClick = "updatePassword()">Update</button>
+</tr>
+<tr>
+<td class = "tabletitles">Role: </td>
+<td ID = "employeeRole"></td>
+<td>
+</tr>
+</table>
+<br>
+</div>
+
+
+
+<script src="../js/accountinformation.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+@charset "ISO-8859-1";
+
+.buttons{
+	background-color: #FF5733;
+	border-radius: 2%;
+}
+
+.alternatebuttons{
+	background-color: #2D87D4;
+	border-radius: 2%;
+}
+
+body{
+	font-family: helvetica;
+		margin: 0;
+		padding: 0;
+}
+table, td {
+	border: 1px solid black;
+}
+
+td {
+	font-family: helvetica;
+}
+
+table, th, td {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+h1 {
+	font-family: Helvetica;
+	font-size: .99em;
+}
+
+span {
+	font-family: Helvetica;
+}
+
+p {
+	font-family: Helvetica;
+}
+
+#masterDiv{
+	margin-top: 0px;
+	position: relative;
+}
+.header {
+	width: 100%;
+	background-color: #2D87D4;
+	overflow: auto;
+	text-align: center;
+	height: 150px;
+	border-color: #554AE1;
+	border-style: solid;
+	display: block;
+	position: fixed;
+	z-index: 1;
+}
+
+#logo {
+	margin-top: -50px;
+	float: left;
+}
+
+.header h1 {
+	margin-left: 405px;
+	float: left;
+}
+
+#sidebarContainer {
+	width: 100px;
+	height: 100%;
+	background-color: #918D8C;
+	border-radius: 0% 3% 3% 0%;
+	border-color: #7E7B7B;
+	border-style: solid;
+	display: inline-block;
+	float: left;
+	position: fixed;
+	top: 154px;
+}
+
+.dropdown {
+	font-weight: bold;
+	margin: -12px;
+	padding: 0px;
+}
+
+#sidebarButton:hover {
+	cursor: pointer;
+}
+
+#menuList {
+	list-style-position: inside;
+	padding-left: 0;
+}
+
+@keyframes anim {
+	from {color :#918D8C;}
+to {color: black;}
+}
+
+.menuItems {
+	font-size: 13.5px;
+	border-style: solid;
+	border-color: #7E7B7B;
+	animation-name: anim;
+	animation-duration: 1s;
+}
+
+.menuItems:hover{
+	background-color: #6C6B6B;
+}
+
+#contentContainer h2, h3 {
+	text-align: center;
+	font-family: helvetica;
+}
+
+.tabletitles {
+	font-family: helvetica;
+	font-weight: bold;
+}
+
+#contentContainer{
+	width: 1450px;
+	height: 100%;
+	display: inline;
+	position: absolute;
+	top: 154px;
+	left: 102px;
+	clear: both;
+}
+
+
+#employeeSearchDiv{
+	margin-left: 15px;
+}
+
+#statusContainerDiv {
+	width: 80px;
+	height: 18px;
+	background-color: white;
+	border-color: #918D8C;
+	border-style: inset;
+	margin-left: 765px;
+	animation-name: disappear;
+	animation-duration: 4s;
+}
+
+@keyframes disappear{
+	0% {background-color: white;}
+	50% {background-color: #13E508;}
+	100%{background-color: white};
+}
+#statusContainerDiv span {
+	padding: 0px 0;
+}
+
+#reimbursementFormDiv{
+	margin-left: 200px;
+}
+
+.approve{
+	background-color: #2D87D4;
+	border-radius: 2%;
+}
+
+.deny{
+	background-color: #918D8C;
+	border-radius: 2%;
+}
+
+#requestSelectorDiv{
+	text-align: center;
+}
+
+#employeeSearchDiv{
+	text-align: left;
+	margin-left: 20px;
+}
+
+#employeeSearchDiv h2, h3 {
+	text-align: left;
+	font-family: helvetica;
+}

@@ -1,0 +1,75 @@
+@charset "ISO-8859-1";
+
+.buttons{
+	background-color: #FF5733;
+	border-radius: 2%;
+}
+
+.alternatebuttons{
+	background-color: #2D87D4;
+	border-radius: 2%;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+h1{
+	font-family: Helvetica;
+	font-size: .99em;
+}
+p{
+	font-family: Helvetica;
+}
+
+#signUpDiv{
+	margin-left: 20px;
+}
+
+#signUpFormDiv{
+	display: inline-block;
+	float: left;
+	font-family: Helvetica;
+}
+#submitbtn{
+	background-color: #FF5733;
+	border-radius: 4%;
+	font-family: helvetica;
+}
+#menu {
+	width: 200px;
+	border-radius: 4%;
+	height: 100px;
+	background-color: #FF5733;
+	border-color: #581845;
+	border-style: solid;
+	margin-top: 215px;
+	margin-left: 15px;
+}
+
+
+.header{
+	margin-left: 0px;
+	background-color: gray;
+	overflow: auto;
+	text-align: center;
+	height: 150px;
+}
+#logo{
+	margin-top: -50px;
+	float: left;
+}
+
+.header h1 {
+	margin-left: 405px;
+	float: left;
+}
+
+#menuList li, a{
+	font-family: Helvetica;
+}
+
+#menuList a:hover {
+	text-shadow: 1px 1px #581845;
+	
+}

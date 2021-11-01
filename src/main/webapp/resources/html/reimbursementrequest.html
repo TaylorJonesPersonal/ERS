@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel = "stylesheet" href = "../css/alternatepages.css">
+<title>Expense Reimbursement: New Request</title>
+</head>
+<body>
+
+
+<div class = "header">
+<a href="http://localhost:8080/ERS/resources/html/home.html"><img src="logo.png" ID="logo" /></a>
+<h1>Welcome to the Expense Reimbursement System</h1>
+</div>
+
+<div ID = "sidebarContainer">
+<div ID ="sidebarButton"><p class="dropdown">____</p><p class="dropdown">____</p><p class="dropdown">____</p><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MENU</b></span></div>
+</div>
+
+<div ID = "contentContainer">
+<h2>Start a new request for reimbursement:</h2>
+
+<div ID="reimbursementFormDiv">
+<form ID = "reimbursementForm">
+<label for="type">This is a reimbursement for: </label>
+<select id="type" name="type" required>
+<option value="Lodging">Lodging</option>
+<option value="Travel">Travel</option>
+<option value="Food">Food</option>
+<option value="Other">Other</option>
+</select>
+<br>
+<br>
+<label for="amountDollars">The amount I'd like reimbursed is: $</label>
+<input ID = "dollars" type="number" min="0" step="any" required/>
+<label for="amountCents"> and </label>
+<input ID= "cents" type="number" min=".0" max = ".99" step=".01" required/> ¢
+<br>
+<br>
+<label for = "description">Describe (in 250 characters or less) the details of this request: </label>
+<br>
+<br>
+<textarea ID = "description" rows="4" cols="50" maxlength="250" required></textarea>
+<br>
+<div ID = "timestampDiv">
+
+</div>
+<br>
+<label for="timestamp">Timestamp: </label>
+<input ID="timestamp" type="text" required />
+<input ID = "timestampButton" type ="button" value="Get Timestamp" />
+</form>
+</div>
+
+
+</div>
+
+<script src="../js/reimbursementrequest.js"></script>
+</body>
+</html>
