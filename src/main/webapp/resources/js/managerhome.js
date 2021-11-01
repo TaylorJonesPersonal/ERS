@@ -44,7 +44,7 @@ function menuControl() {
 
 function addMenu() {
 	var newNode = document.createElement("div");
-	newNode.innerHTML = "<p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/mpendingrequests.html'>View/Approve Pending Requests</a></p><p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/reimbursementview.html'>View/Update Employee Information</a></p><p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/accountinformation.html'>View Update/Account My Account Information</a></p><p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/signup.html' onClick='logout()'>Logout</p>";
+	newNode.innerHTML = "<p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/mpendingrequests.html'>View/Approve Pending Requests</a></p><p class = 'menuItems'><a href='http://localhost:8080/ERS/resources/html/mresolvedrequests.html'>View All Resolved Requests</a></p><p class = 'menuItems'><a href='http://localhost:8080/ERS/resources/html/viewspecific.html'>View Specific Employee Requests</a></p><p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/mviewallemployees.html'>View Employee Information</a></p><p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/maccountinformation.html'>View/Update My Account Information</a></p><p class='menuItems'><a href='http://localhost:8080/ERS/resources/html/signup.html' onClick='logout()'>Logout</p>";
 	document.getElementById("sidebarContainer").appendChild(newNode);
 };
 

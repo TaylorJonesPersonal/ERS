@@ -45,13 +45,16 @@ p {
 }
 
 .header {
-	margin-left: 0px;
+	width: 100%;
 	background-color: #FF5733;
 	overflow: auto;
 	text-align: center;
 	height: 150px;
 	border-color: #DE4D2D;
 	border-style: solid;
+	display: block;
+	position: fixed;
+	z-index: 1;
 }
 
 #logo {
@@ -71,13 +74,26 @@ p {
 
 #sidebarContainer {
 	width: 100px;
-	height: 1000px;
+	height: 100%;
 	background-color: #918D8C;
 	border-radius: 0% 3% 3% 0%;
 	border-color: #7E7B7B;
 	border-style: solid;
 	display: inline-block;
 	float: left;
+	position: fixed;
+	top: 154px;
+}
+
+#contentContainer{
+	width: 1450px;
+	height: 100%;
+	display: inline;
+	position: absolute;
+	top: 154px;
+	left: 102px;
+	clear: both;
+	text-align: center;
 }
 
 .dropdown {

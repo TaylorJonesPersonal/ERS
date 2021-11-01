@@ -1,10 +1,19 @@
 @charset "ISO-8859-1";
 
-#requestSelectorDiv{
-	margin-left: 400px;
+.buttons{
+	background-color: #FF5733;
+	border-radius: 2%;
 }
+
+.alternatebuttons{
+	background-color: #2D87D4;
+	border-radius: 2%;
+}
+
 body{
 	font-family: helvetica;
+		margin: 0;
+		padding: 0;
 }
 table, td {
 	border: 1px solid black;
@@ -24,11 +33,6 @@ a {
 	color: inherit;
 }
 
-html, body {
-	margin: 0;
-	padding: 0;
-}
-
 h1 {
 	font-family: Helvetica;
 	font-size: .99em;
@@ -42,14 +46,21 @@ p {
 	font-family: Helvetica;
 }
 
+#masterDiv{
+	margin-top: 0px;
+	position: relative;
+}
 .header {
-	margin-left: 0px;
+	width: 100%;
 	background-color: #2D87D4;
 	overflow: auto;
 	text-align: center;
 	height: 150px;
 	border-color: #554AE1;
 	border-style: solid;
+	display: block;
+	position: fixed;
+	z-index: 1;
 }
 
 #logo {
@@ -64,13 +75,15 @@ p {
 
 #sidebarContainer {
 	width: 100px;
-	height: 1000px;
+	height: 100%;
 	background-color: #918D8C;
 	border-radius: 0% 3% 3% 0%;
 	border-color: #7E7B7B;
 	border-style: solid;
 	display: inline-block;
 	float: left;
+	position: fixed;
+	top: 154px;
 }
 
 .dropdown {
@@ -115,6 +128,21 @@ to {color: black;}
 	font-weight: bold;
 }
 
+#contentContainer{
+	width: 1450px;
+	height: 100%;
+	display: inline;
+	position: absolute;
+	top: 154px;
+	left: 102px;
+	clear: both;
+}
+
+
+#employeeSearchDiv{
+	margin-left: 15px;
+}
+
 #statusContainerDiv {
 	width: 80px;
 	height: 18px;
@@ -122,8 +150,6 @@ to {color: black;}
 	border-color: #918D8C;
 	border-style: inset;
 	margin-left: 765px;
-	border-radius: 12%;
-	text-align: center;
 	animation-name: disappear;
 	animation-duration: 4s;
 }
@@ -139,4 +165,28 @@ to {color: black;}
 
 #reimbursementFormDiv{
 	margin-left: 200px;
+}
+
+.approve{
+	background-color: #2D87D4;
+	border-radius: 2%;
+}
+
+.deny{
+	background-color: #918D8C;
+	border-radius: 2%;
+}
+
+#requestSelectorDiv{
+	text-align: center;
+}
+
+#employeeSearchDiv{
+	text-align: left;
+	margin-left: 20px;
+}
+
+#employeeSearchDiv h2, h3 {
+	text-align: left;
+	font-family: helvetica;
 }

@@ -80,11 +80,12 @@ function addSubmitButton(){
 
 async function formInfo(e){
 	e.preventDefault();
-	if(document.getElementById("cents").value != "0"){
-	var amount = document.getElementById("dollars").value + document.getElementById("cents").value;
-	} else{
+	if(document.getElementById("cents").value == ".0" || document.getElementById("cents").value == ".00"){
+	amount = document.getElementById("dollars").value + "." + document.getElementById("cents").value;
+	} else if (document.getElementById("cents").value == "00" || document.getElementById("cents").value == "0"){
 	amount = document.getElementById("dollars").value + "." + document.getElementById("cents").value;
 	}
+	
 	let type = document.getElementById("type").value;
 	let time = document.getElementById("timestamp").value;
 	let description = document.getElementById("description").value;
@@ -104,7 +105,8 @@ async function formInfo(e){
 			},
 				body: JSON.stringify(reimbursement)
 		});
-			let response = await request.json();
+			console.log("Should be redirecting now.");
+			location.href = "../html/reimbursementview.html"
 	}catch(e){
 		console.log(e);
 	}

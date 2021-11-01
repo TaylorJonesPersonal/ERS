@@ -53,6 +53,7 @@ function foldMenu() {
 function disappear() {
 	var newNode = document.createElement("div");
 	newNode.innerHTML = "<div ID = 'statusContainerDiv'><span>Updated</span></div>";
+	newNode.style.marginLeft = "-100px";
 	document.getElementById("statusContainer").appendChild(newNode);	
 }
 

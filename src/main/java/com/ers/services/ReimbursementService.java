@@ -42,5 +42,35 @@ public class ReimbursementService {
 		return null;
 		
 	}
+	
+	public ArrayList<reimbursement> getSpecificReimb(String username, String status){
+		ArrayList<reimbursement> rList = new ArrayList<reimbursement>();
+		try {
+			System.out.println("in the getSpecificReimb service");
+			rList = rDao.getSpecificReimbursement(username, status);
+			return rList;
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public void approveReimbursement(String dateTime) {
+		try {
+			System.out.println("In the approveReimbursement service");
+			rDao.approveReim(dateTime);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void denyReimbursement(String dateTime) {
+		try {
+			System.out.println("In the denyReimbursement service");
+			rDao.denyReim(dateTime);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

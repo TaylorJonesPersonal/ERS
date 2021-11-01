@@ -1,6 +1,7 @@
 package com.ers.services;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.aspose.email.MailAddress;
 import com.aspose.email.MailMessage;
@@ -121,6 +122,17 @@ public class UserService {
 			} else {
 				return u;
 			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public ArrayList<user> getAllEmp() {
+		ArrayList<user> uList = new ArrayList<user>();
+		try {
+			uList = uDao.getAllUsers();
+			return uList;
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

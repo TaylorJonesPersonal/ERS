@@ -1,6 +1,7 @@
 package com.ers.dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.ers.models.user;
 
@@ -11,5 +12,6 @@ public interface userDao {
 	void deleteUser(String username);
 	public void postInviteCode(String username, int inviteCode);
 	public boolean checkInviteCode(String username, int inviteCode);
+	public ArrayList<user> getAllUsers();
 	
 }

@@ -90,6 +90,8 @@ async function getReimbursement() {
 				let counter = i + 1;
 				table = document.getElementById("tableContainer");
 				var newNode = document.createElement("table");
+				newNode.style.borderColor= "#2D87D4";
+				newNode.style.width = "500px";
 				newNode.innerHTML = "<tr><th colspan=2>Reimbursement Request # " + counter + " </th><tr><td>Submitted Date: </td><td> " + response[i].submittedDate + " </td></tr><tr><td>Amount: </td><td> $" + response[i].amount + " </td></tr><tr><td>Description: </td><td> " + response[i].description + " </td></tr><tr><td>Status: </td><td> " + response[i].status + " </td></tr>";
 				table.appendChild(newNode);
 			}
@@ -108,6 +110,8 @@ async function getReimbursement() {
 				let counter = i + 1;
 				table = document.getElementById("tableContainer");
 				var newNode = document.createElement("table");
+				newNode.style.borderColor= "#2D87D4";
+				newNode.style.width = "500px";
 				newNode.innerHTML = "<tr><th colspan=2>Reimbursement Request # " + counter + " </th><tr><td>Submitted Date: </td><td> " + response[i].submittedDate + " </td></tr><tr><td>Amount: </td><td> $" + response[i].amount + " </td></tr><tr><td>Description: </td><td> " + response[i].description + " </td></tr><tr><td>Status: </td><td> " + response[i].status + " </td></tr>";
 				table.appendChild(newNode);
 			}

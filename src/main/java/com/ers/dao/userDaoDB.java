@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 
 import com.ers.exceptions.SignUpFailedException;
 import com.ers.exceptions.UserDoesNotExistException;
@@ -67,6 +68,41 @@ public class userDaoDB implements userDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+	
+	public ArrayList<user> getAllUsers(){
+		Connection con = conUtil.getConnection();
+		
+		try {
+		user u = new user();
+		ArrayList<user> uList = new ArrayList<user>();
+		
+		String sql = "select user_first_name, user_last_name, user_email, user_username, user_role from ers_users inner join ers_user_roles on ers_users.user_role_id = ers_user_roles.user_role_id; ";
+		Statement s = con.createStatement();
+		ResultSet rs = s.executeQuery(sql);
+		
+		while (rs.next()) {
+			String firstName = rs.getString(1);
+			String lastName = rs.getString(2);
+			String email = rs.getString(3);
+			String username = rs.getString(4);
+			String role = rs.getString(5);
+			
+			uList.add(new user(firstName, lastName, email, username, role));
+		}
+		
+		for (int i = 0; i < uList.size(); i++) {
+			System.out.println(uList.get(i));
+		}
+		
+		return uList;
+		
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 	

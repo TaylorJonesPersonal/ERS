@@ -10,6 +10,7 @@ public class user {
 	private String lastname;
 	private String email;
 	private int roleID;
+	private String role;
 	private String pending;
 	private int inviteCode;
 	
@@ -27,6 +28,14 @@ public class user {
 		this.roleID = roleID;
 		this.pending = "y";
 		this.inviteCode = 0;
+	}
+	
+	public user(String firstname, String lastname, String email, String username, String role) {
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+		this.username = username;
+		this.role = role;
 	}
 	
 	public user(String username, int inviteCode) {
@@ -85,8 +94,8 @@ public class user {
 	@Override
 	public String toString() {
 		return "user [id=" + id + ", username=" + username + ", password=" + password + ", firstname=" + firstname
-				+ ", lastname=" + lastname + ", email=" + email + ", roleID=" + roleID + ", pending=" + pending
-				+ ", inviteCode=" + inviteCode + "]";
+				+ ", lastname=" + lastname + ", email=" + email + ", roleID=" + roleID + ", role=" + role + ", pending="
+				+ pending + ", inviteCode=" + inviteCode + "]";
 	}
 
 
@@ -103,6 +112,16 @@ public class user {
 
 	public int getRoleID() {
 		return roleID;
+	}
+
+
+	public String getRole() {
+		return role;
+	}
+
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 

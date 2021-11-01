@@ -31,3 +31,25 @@
 2021-10-20 10:21:23 WARN  Logging:21 - User signup has entered a duplicate email or username.
 2021-10-20 10:25:43 WARN  Logging:21 - User signup has entered a duplicate email or username.
 2021-10-20 10:26:52 WARN  Logging:21 - User signup has entered a duplicate email or username.
+2021-10-31 20:48:02 WARN  Logging:33 - User is either already signed up or has provided invalid data for signup.
+2021-10-31 21:01:48 WARN  Logging:33 - User is either already signed up or has provided invalid data for signup.
+2021-10-31 21:02:30 WARN  Logging:46 - Username entered does not exist
+2021-10-31 21:03:50 WARN  Logging:46 - Username entered does not exist
+2021-10-31 21:07:09 WARN  Logging:46 - Username entered does not exist
+2021-10-31 21:07:09 WARN  Logging:46 - Username entered does not exist
+2021-10-31 21:08:21 WARN  Logging:46 - Username entered does not exist
+2021-10-31 21:08:22 WARN  Logging:46 - Username entered does not exist
+2021-10-31 21:13:30 WARN  Logging:33 - User is either already signed up or has provided invalid data for signup.
+2021-10-31 21:13:31 WARN  Logging:33 - User is either already signed up or has provided invalid data for signup.
+2021-10-31 21:14:56 WARN  Logging:33 - User is either already signed up or has provided invalid data for signup.
+2021-10-31 21:14:57 WARN  Logging:33 - User is either already signed up or has provided invalid data for signup.
+2021-10-31 21:16:37 WARN  Logging:33 - User is either already signed up or has provided invalid data for signup.
+2021-10-31 21:16:37 WARN  Logging:33 - User is either already signed up or has provided invalid data for signup.
+2021-10-31 21:23:41 WARN  Logging:33 - User is either already signed up or has provided invalid data for signup.
+2021-10-31 21:23:41 WARN  Logging:33 - User is either already signed up or has provided invalid data for signup.
+2021-10-31 21:35:35 WARN  Logging:120 - User input incorrect invite code.
+2021-10-31 21:37:10 WARN  Logging:120 - User input incorrect invite code.
+2021-10-31 21:51:39 WARN  Logging:33 - User is either already signed up or has provided invalid data for signup.
+2021-10-31 22:25:28 WARN  Logging:120 - User input incorrect invite code.
+2021-10-31 22:28:15 WARN  Logging:33 - User is either already signed up or has provided invalid data for signup.
+2021-10-31 22:29:27 WARN  Logging:120 - User input incorrect invite code.
